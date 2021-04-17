@@ -32,11 +32,12 @@ function writeToFile(fileName, data) {}
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    console.log(answers);
+    // console.log(answers);
     fs.writeFileSync(
       path.join(process.cwd(), "creatorreadme.md"),
       generateMarkdown(answers)
     );
+    console.log("Congrats on your new file");
   });
 }
 
