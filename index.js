@@ -22,7 +22,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "choose a license",
-    choices: ["MIT", "Mozilla", "Creative Commons", "IBM", "none"],
+    choices: ["MIT", "Mozilla", "Creative Commons", "IBM", "Apache"],
   },
 ];
 
@@ -33,7 +33,10 @@ function writeToFile(fileName, data) {}
 function init() {
   inquirer.prompt(questions).then((answers) => {
     console.log(answers);
-    
+    fs.writeFileSync(
+      path.join(process.cwd(), "creatorreadme.md"),
+      generateMarkdown(answers)
+    );
   });
 }
 
